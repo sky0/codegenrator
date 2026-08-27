@@ -270,29 +270,30 @@ curl -X DELETE http://localhost:3001/api/prepare/sessions/<session-id>
 
 ## Production Build
 
-### Build the frontend
+The backend can serve the built frontend from a single port.
 
 ```bash
 cd exam-prep/frontend
 npm run build
-```
 
-Output is written to `exam-prep/frontend/dist/`.
-
-### Serve the frontend (preview)
-
-```bash
-npm run preview
-```
-
-### Run the backend in production
-
-```bash
-cd exam-prep/backend
+cd ../backend
 npm start
 ```
 
-For a full production deployment, serve the `dist/` folder with any static file server (Nginx, Caddy, etc.) and run the backend as a Node process (PM2, systemd, Docker, etc.). Point the static server's `/api` path to the backend, or set a reverse proxy.
+Open **http://localhost:3001** — API and UI are on the same origin.
+
+### Docker
+
+From the `exam-prep` directory:
+
+```bash
+docker build -t reviseready .
+docker run -p 3001:3001 -e OPENAI_API_KEY=your_key reviseready
+```
+
+### Render
+
+This repo includes `exam-prep/render.yaml`. On [Render](https://render.com), create a Web Service from the GitHub repo, set the Docker context to `exam-prep`, and add `OPENAI_API_KEY` as an optional secret. The health check is `/api/health`.
 
 ---
 

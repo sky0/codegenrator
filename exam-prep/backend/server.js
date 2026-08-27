@@ -1,10 +1,16 @@
 import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
 import prepareRoutes from './routes/prepare.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || '0.0.0.0';
+const frontendDist = path.join(__dirname, '..', 'frontend', 'dist');
 
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
@@ -18,6 +24,14 @@ app.get('/api/health', (_req, res) => {
 
 app.use('/api/prepare', prepareRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Exam Prep API running on http://localhost:${PORT}`);
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) return next();
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
+
+app.listen(PORT, HOST, () => {
+  console.log(`ReviseReady running on http://${HOST}:${PORT}`);
 });
