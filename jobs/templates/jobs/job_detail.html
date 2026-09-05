@@ -1,0 +1,75 @@
+{% extends 'jobs/base.html' %}
+
+{% block title %}{{ job.title }}{% endblock %}
+
+{% block content %}
+<section class="page-header compact">
+    <div class="container">
+        <a href="{% url 'jobs:job_list' %}" class="back-link">← Back to jobs</a>
+    </div>
+</section>
+
+<section class="job-detail-page">
+    <div class="container job-detail-layout">
+        <div class="job-detail-main">
+            <div class="job-detail-header">
+                <div class="company-avatar xl">{{ job.company|first }}</div>
+                <div>
+                    <h1>{{ job.title }}</h1>
+                    <p class="company-name lg">{{ job.company }}</p>
+                    <div class="job-meta">
+                        <span class="meta-item">📍 {{ job.location }}</span>
+                        {% if job.remote %}<span class="meta-item remote">🌐 Remote</span>{% endif %}
+                        <span class="meta-item">📊 {{ job.get_experience_level_display }}</span>
+                        <span class="meta-item">💰 {{ job.salary_display }}</span>
+                        <span class="meta-item">📅 Posted {{ job.posted_at|date:"M d, Y" }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-skills-section">
+                <h3>Required Skills</h3>
+                <div class="job-tags">
+                    {% for skill in job.skills_list %}
+                    <span class="skill-tag lg">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="job-description-section">
+                <h3>Job Description</h3>
+                <div class="prose">{{ job.description|linebreaks }}</div>
+            </div>
+
+            <div class="job-description-section">
+                <h3>Requirements</h3>
+                <div class="prose">{{ job.requirements|linebreaks }}</div>
+            </div>
+        </div>
+
+        <aside class="job-detail-sidebar">
+            <div class="sidebar-card sticky">
+                <span class="stream-badge lg">{{ job.get_stream_display }}</span>
+                <a href="{% url 'jobs:resume_form' job.pk %}" class="btn btn-primary btn-block btn-lg">
+                    📄 Generate Tailored Resume
+                </a>
+                <p class="sidebar-hint">Our resume builder analyzes this job description and creates a customized resume highlighting your matching skills.</p>
+            </div>
+
+            {% if related_jobs %}
+            <div class="sidebar-card">
+                <h3>Similar Jobs</h3>
+                <div class="related-jobs">
+                    {% for related in related_jobs %}
+                    <a href="{% url 'jobs:job_detail' related.pk %}" class="related-job-item">
+                        <strong>{{ related.title }}</strong>
+                        <span>{{ related.company }} · {{ related.location }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </aside>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="site-base" content="{{ SITE_BASE }}">
+    <title>{% block title %}DevCareer Hub{% endblock %} — Java & Spring Boot Jobs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'jobs/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url 'jobs:home' %}" class="logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">DevCareer<span class="logo-accent">Hub</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="{% url 'jobs:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                <a href="{% url 'jobs:job_list' %}" class="nav-link {% if request.resolver_match.url_name == 'job_list' %}active{% endif %}">Browse Jobs</a>
+            </div>
+            <a href="{% url 'jobs:job_list' %}" class="btn btn-primary btn-sm">Find Jobs</a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span>DevCareer Hub</span>
+            </div>
+            <p class="footer-tagline">Your gateway to Java, Spring Boot & Hibernate careers</p>
+            <div class="footer-links">
+                <a href="{% url 'jobs:job_list' %}?stream=backend">Backend</a>
+                <a href="{% url 'jobs:job_list' %}?stream=fullstack">Full Stack</a>
+                <a href="{% url 'jobs:job_list' %}?stream=microservices">Microservices</a>
+                <a href="{% url 'jobs:job_list' %}?stream=cloud">Cloud Native</a>
+                <a href="{% url 'jobs:job_list' %}?stream=fintech">FinTech</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 DevCareer Hub. Built for software engineers.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'jobs/js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

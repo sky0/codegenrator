@@ -1,0 +1,114 @@
+{% extends 'jobs/base.html' %}
+
+{% block title %}Resume — {{ resume.name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    @media print {
+        .navbar, .footer, .resume-actions, .back-link { display: none !important; }
+        .resume-document { box-shadow: none !important; margin: 0 !important; }
+        body { background: white !important; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-header compact">
+    <div class="container resume-actions">
+        <a href="{% url 'jobs:resume_form' job.pk %}" class="back-link">← Edit details</a>
+        <div class="action-buttons">
+            <button onclick="window.print()" class="btn btn-primary">🖨️ Print / Save PDF</button>
+            <a href="{% url 'jobs:job_list' %}" class="btn btn-outline">Browse More Jobs</a>
+        </div>
+    </div>
+</section>
+
+<section class="resume-preview-page">
+    <div class="container">
+        <div class="resume-match-banner">
+            <span class="match-icon">✨</span>
+            Resume tailored for <strong>{{ job.title }}</strong> at <strong>{{ job.company }}</strong>
+            <div class="matched-skills">
+                Matched skills:
+                {% for skill in resume.matched_skills %}
+                <span class="skill-tag sm">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="resume-document" id="resume-document">
+            <header class="resume-header">
+                <h1>{{ resume.name }}</h1>
+                <div class="resume-contact">
+                    <span>{{ resume.email }}</span>
+                    <span class="sep">|</span>
+                    <span>{{ resume.phone }}</span>
+                    <span class="sep">|</span>
+                    <span>{{ resume.location }}</span>
+                    <span class="sep">|</span>
+                    <span>{{ resume.linkedin }}</span>
+                </div>
+            </header>
+
+            <section class="resume-section">
+                <h2>Professional Summary</h2>
+                <p>{{ resume.summary }}</p>
+            </section>
+
+            <section class="resume-section">
+                <h2>Core Skills</h2>
+                <div class="resume-skills">
+                    {% for skill in resume.skills %}
+                    <span class="resume-skill">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h2>Professional Experience</h2>
+                {% for exp in resume.experience %}
+                <div class="resume-exp-item">
+                    <div class="resume-exp-header">
+                        <strong>{{ exp.title }}</strong>
+                        <span class="resume-exp-duration">{{ exp.duration }}</span>
+                    </div>
+                    <div class="resume-exp-company">{{ exp.company }}</div>
+                    <ul>
+                        {% for bullet in exp.bullets %}
+                        <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </section>
+
+            <section class="resume-section">
+                <h2>Projects</h2>
+                {% for proj in resume.projects %}
+                <div class="resume-project-item">
+                    <strong>{{ proj.name }}</strong>
+                    <span class="resume-project-tech">{{ proj.tech }}</span>
+                    <p>{{ proj.description }}</p>
+                </div>
+                {% endfor %}
+            </section>
+
+            {% if resume.certifications %}
+            <section class="resume-section">
+                <h2>Certifications</h2>
+                <ul class="resume-certs">
+                    {% for cert in resume.certifications %}
+                    <li>{{ cert }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            <section class="resume-section">
+                <h2>Education</h2>
+                <p>{{ resume.education }}</p>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'jobs/base.html' %}
+
+{% block title %}Browse Jobs{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Browse Jobs</h1>
+        <p id="result-count">{{ result_count }} position{{ result_count|pluralize }} found</p>
+    </div>
+</section>
+
+<section class="jobs-page">
+    <div class="container jobs-layout">
+        <aside class="filters-sidebar">
+            <form method="get" action="{% url 'jobs:job_list' %}" class="filters-form" id="filters-form" data-static-export="{% if STATIC_EXPORT %}true{% else %}false{% endif %}">
+                <div class="filter-group">
+                    <label for="q">Search</label>
+                    <input type="text" name="q" id="q" value="{{ q }}" placeholder="Keywords, skills, company...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="stream">Career Stream</label>
+                    <select name="stream" id="stream">
+                        <option value="">All Streams</option>
+                        {% for value, label in streams %}
+                        <option value="{{ value }}" {% if stream == value %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="level">Experience Level</label>
+                    <select name="level" id="level">
+                        <option value="">All Levels</option>
+                        {% for value, label in levels %}
+                        <option value="{{ value }}" {% if level == value %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location" value="{{ location }}" placeholder="City, state, country...">
+                </div>
+
+                <div class="filter-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remote" value="true" {% if remote == 'true' %}checked{% endif %}>
+                        <span>Remote only</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+                <a href="{% url 'jobs:job_list' %}" class="btn btn-ghost btn-block">Clear All</a>
+            </form>
+        </aside>
+
+        <div class="jobs-results">
+            <div class="jobs-list" id="jobs-list" {% if not jobs %}hidden{% endif %}>
+                {% for job in jobs %}
+                <article class="job-list-item"
+                    data-title="{{ job.title|lower }}"
+                    data-company="{{ job.company|lower }}"
+                    data-skills="{{ job.skills|lower }}"
+                    data-stream="{{ job.stream }}"
+                    data-level="{{ job.experience_level }}"
+                    data-remote="{% if job.remote %}true{% else %}false{% endif %}"
+                    data-location="{{ job.location|lower }}">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">{{ job.company|first }}</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="{% url 'jobs:job_detail' job.pk %}">{{ job.title }}</a></h2>
+                                {% if job.is_featured %}<span class="featured-badge sm">Featured</span>{% endif %}
+                            </div>
+                            <p class="company-name">{{ job.company }}</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 {{ job.location }}</span>
+                                {% if job.remote %}<span class="meta-item remote">🌐 Remote</span>{% endif %}
+                                <span class="meta-item">📊 {{ job.get_experience_level_display }}</span>
+                                <span class="meta-item">💰 {{ job.salary_display }}</span>
+                            </div>
+                            <div class="job-tags">
+                                {% for skill in job.skills_list|slice:":5" %}
+                                <span class="skill-tag">{{ skill }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">{{ job.get_stream_display }}</span>
+                        <a href="{% url 'jobs:job_detail' job.pk %}" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="{% url 'jobs:resume_form' job.pk %}" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            <div class="empty-state" id="empty-state" {% if jobs %}hidden{% endif %}>
+                <div class="empty-icon">🔍</div>
+                <h3>No jobs found</h3>
+                <p>Try adjusting your search filters or browse all available positions.</p>
+                <a href="{% url 'jobs:job_list' %}" class="btn btn-primary">View All Jobs</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

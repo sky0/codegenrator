@@ -1,0 +1,133 @@
+{% extends 'jobs/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-container">
+        <div class="hero-badge">🚀 {{ total_jobs }}+ Software Engineering Jobs</div>
+        <h1 class="hero-title">
+            Find Your Dream<br>
+            <span class="gradient-text">Java & Spring Boot</span> Career
+        </h1>
+        <p class="hero-subtitle">
+            Discover top software engineering roles across Backend, Full Stack, Microservices, Cloud, and more.
+            Generate tailored resumes instantly based on any job description.
+        </p>
+
+        <form action="{% url 'jobs:job_list' %}" method="get" class="hero-search" id="hero-search-form">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                </svg>
+                <input type="text" name="q" placeholder="Search jobs, skills, companies..." class="search-input" id="hero-search-input" autocomplete="off">
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Search Jobs</button>
+        </form>
+
+        <div class="hero-tags">
+            <span class="tag-label">Popular:</span>
+            <a href="{% url 'jobs:job_list' %}?q=Spring+Boot" class="tag">Spring Boot</a>
+            <a href="{% url 'jobs:job_list' %}?q=Hibernate" class="tag">Hibernate</a>
+            <a href="{% url 'jobs:job_list' %}?q=Microservices" class="tag">Microservices</a>
+            <a href="{% url 'jobs:job_list' %}?remote=true" class="tag">Remote</a>
+            <a href="{% url 'jobs:job_list' %}?level=senior" class="tag">Senior</a>
+        </div>
+    </div>
+</section>
+
+<section class="streams-section">
+    <div class="container">
+        <h2 class="section-title">Explore by Stream</h2>
+        <p class="section-subtitle">Choose your career path and find matching opportunities</p>
+        <div class="streams-grid">
+            {% for value, label in streams %}
+            <a href="{% url 'jobs:job_list' %}?stream={{ value }}" class="stream-card">
+                <div class="stream-icon">
+                    {% if value == 'backend' %}⚙️
+                    {% elif value == 'fullstack' %}🔄
+                    {% elif value == 'microservices' %}🔗
+                    {% elif value == 'cloud' %}☁️
+                    {% elif value == 'data' %}📊
+                    {% elif value == 'devops' %}🛠️
+                    {% elif value == 'mobile' %}📱
+                    {% elif value == 'fintech' %}💰
+                    {% else %}🏢{% endif %}
+                </div>
+                <h3>{{ label }}</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Smart Search</h3>
+                <p>Filter by technology stack, experience level, location, and remote options to find your perfect match.</p>
+            </div>
+            <div class="feature-card highlight">
+                <div class="feature-icon">📄</div>
+                <h3>AI Resume Builder</h3>
+                <p>Generate a tailored resume based on any job description. Highlights matching skills and relevant experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Top Companies</h3>
+                <p>Jobs from Amazon, Google, Netflix, Goldman Sachs, and leading tech companies worldwide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jobs-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Jobs</h2>
+            <a href="{% url 'jobs:job_list' %}" class="view-all">View all jobs →</a>
+        </div>
+        <div class="jobs-grid">
+            {% for job in featured_jobs %}
+            <article class="job-card">
+                {% if job.is_featured %}<span class="featured-badge">Featured</span>{% endif %}
+                <div class="job-card-header">
+                    <div class="company-avatar">{{ job.company|first }}</div>
+                    <div>
+                        <h3><a href="{% url 'jobs:job_detail' job.pk %}">{{ job.title }}</a></h3>
+                        <p class="company-name">{{ job.company }}</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 {{ job.location }}</span>
+                    {% if job.remote %}<span class="meta-item remote">🌐 Remote</span>{% endif %}
+                    <span class="meta-item">💰 {{ job.salary_display }}</span>
+                </div>
+                <div class="job-tags">
+                    {% for skill in job.skills_list|slice:":4" %}
+                    <span class="skill-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">{{ job.get_stream_display }}</span>
+                    <a href="{% url 'jobs:resume_form' job.pk %}" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container cta-container">
+        <h2>Ready to land your next role?</h2>
+        <p>Browse hundreds of Java & Spring Boot positions and create a resume tailored to each job.</p>
+        <a href="{% url 'jobs:job_list' %}" class="btn btn-primary btn-lg">Browse All Jobs</a>
+    </div>
+</section>
+{% endblock %}
