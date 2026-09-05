@@ -1,0 +1,89 @@
+{% extends 'jobs/base.html' %}
+
+{% block title %}Build Resume — {{ job.title }}{% endblock %}
+
+{% block content %}
+<section class="page-header compact">
+    <div class="container">
+        <a href="{% url 'jobs:job_detail' job.pk %}" class="back-link">← Back to job</a>
+        <h1>Generate Tailored Resume</h1>
+        <p>For: <strong>{{ job.title }}</strong> at <strong>{{ job.company }}</strong></p>
+    </div>
+</section>
+
+<section class="resume-form-page">
+    <div class="container resume-form-layout">
+        <div class="resume-form-main">
+            <form method="post" action="{% url 'jobs:generate_resume' job.pk %}" class="resume-form">
+                {% csrf_token %}
+                <div class="form-section">
+                    <h3>Your Information</h3>
+                    <p class="form-hint">Enter your details below. We'll tailor your resume to match this job's requirements.</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john.doe@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="San Francisco, CA">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="text" id="linkedin" name="linkedin" placeholder="linkedin.com/in/johndoe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <input type="text" id="education" name="education" placeholder="B.S. Computer Science — State University (2016)">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    ✨ Generate My Resume
+                </button>
+            </form>
+        </div>
+
+        <aside class="resume-form-sidebar">
+            <div class="sidebar-card">
+                <h3>How it works</h3>
+                <ol class="steps-list">
+                    <li>We analyze the job description and requirements</li>
+                    <li>Extract key skills like Java, Spring Boot, Hibernate</li>
+                    <li>Generate a tailored resume highlighting matching experience</li>
+                    <li>Download or print your customized resume</li>
+                </ol>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Target Job Skills</h3>
+                <div class="job-tags">
+                    {% for skill in job.skills_list %}
+                    <span class="skill-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="sidebar-card preview-hint">
+                <div class="preview-icon">📄</div>
+                <p>Your resume will be customized for <strong>{{ job.title }}</strong> at <strong>{{ job.company }}</strong></p>
+            </div>
+        </aside>
+    </div>
+</section>
+{% endblock %}
