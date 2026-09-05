@@ -1,0 +1,1026 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="site-base" content="..">
+    <title>Browse Jobs — Java & Spring Boot Jobs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/jobs/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">DevCareer<span class="logo-accent">Hub</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link ">Home</a>
+                <a href="../jobs/index.html" class="nav-link active">Browse Jobs</a>
+            </div>
+            <a href="../jobs/index.html" class="btn btn-primary btn-sm">Find Jobs</a>
+        </div>
+    </nav>
+
+    <main>
+        
+<section class="page-header">
+    <div class="container">
+        <h1>Browse Jobs</h1>
+        <p id="result-count">20 positions found</p>
+    </div>
+</section>
+
+<section class="jobs-page">
+    <div class="container jobs-layout">
+        <aside class="filters-sidebar">
+            <form method="get" action="../jobs/index.html" class="filters-form" id="filters-form" data-static-export="true">
+                <div class="filter-group">
+                    <label for="q">Search</label>
+                    <input type="text" name="q" id="q" value="" placeholder="Keywords, skills, company...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="stream">Career Stream</label>
+                    <select name="stream" id="stream">
+                        <option value="">All Streams</option>
+                        
+                        <option value="backend" >Backend Engineering</option>
+                        
+                        <option value="fullstack" >Full Stack</option>
+                        
+                        <option value="microservices" >Microservices</option>
+                        
+                        <option value="cloud" >Cloud Native</option>
+                        
+                        <option value="data" >Data Engineering</option>
+                        
+                        <option value="devops" >DevOps / SRE</option>
+                        
+                        <option value="mobile" >Mobile Backend</option>
+                        
+                        <option value="fintech" >FinTech</option>
+                        
+                        <option value="enterprise" >Enterprise Java</option>
+                        
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="level">Experience Level</label>
+                    <select name="level" id="level">
+                        <option value="">All Levels</option>
+                        
+                        <option value="intern" >Intern</option>
+                        
+                        <option value="junior" >Junior (0-2 yrs)</option>
+                        
+                        <option value="mid" >Mid-Level (2-5 yrs)</option>
+                        
+                        <option value="senior" >Senior (5-8 yrs)</option>
+                        
+                        <option value="lead" >Lead / Principal (8+ yrs)</option>
+                        
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location" value="" placeholder="City, state, country...">
+                </div>
+
+                <div class="filter-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remote" value="true" >
+                        <span>Remote only</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+                <a href="../jobs/index.html" class="btn btn-ghost btn-block">Clear All</a>
+            </form>
+        </aside>
+
+        <div class="jobs-results">
+            <div class="jobs-list" id="jobs-list" >
+                
+                <article class="job-list-item"
+                    data-title="senior java spring boot developer"
+                    data-company="goldman sachs"
+                    data-skills="java, spring boot, hibernate, rest api, sql, microservices, kafka, aws"
+                    data-stream="fintech"
+                    data-level="senior"
+                    data-remote="false"
+                    data-location="new york, ny">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">G</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/1/index.html">Senior Java Spring Boot Developer</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Goldman Sachs</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 New York, NY</span>
+                                
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $150,000 – $200,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">REST API</span>
+                                
+                                <span class="skill-tag">SQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">FinTech</span>
+                        <a href="../jobs/1/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/1/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="java backend engineer"
+                    data-company="amazon"
+                    data-skills="java, spring boot, hibernate, aws, docker, kubernetes, sql, rest api"
+                    data-stream="backend"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="seattle, wa">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">A</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/2/index.html">Java Backend Engineer</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Amazon</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Seattle, WA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $130,000 – $175,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">AWS</span>
+                                
+                                <span class="skill-tag">Docker</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/2/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/2/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="full stack java developer"
+                    data-company="jpmorgan chase"
+                    data-skills="java, spring boot, hibernate, react, typescript, rest api, sql, agile"
+                    data-stream="fullstack"
+                    data-level="senior"
+                    data-remote="false"
+                    data-location="jersey city, nj">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">J</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/3/index.html">Full Stack Java Developer</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">JPMorgan Chase</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Jersey City, NJ</span>
+                                
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $140,000 – $185,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">React</span>
+                                
+                                <span class="skill-tag">TypeScript</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Full Stack</span>
+                        <a href="../jobs/3/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/3/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="microservices architect"
+                    data-company="netflix"
+                    data-skills="java, spring boot, spring cloud, microservices, kafka, docker, kubernetes, aws, system design"
+                    data-stream="microservices"
+                    data-level="lead"
+                    data-remote="true"
+                    data-location="los gatos, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">N</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/4/index.html">Microservices Architect</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Netflix</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Los Gatos, CA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Lead / Principal (8+ yrs)</span>
+                                <span class="meta-item">💰 $200,000 – $280,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Spring Cloud</span>
+                                
+                                <span class="skill-tag">Microservices</span>
+                                
+                                <span class="skill-tag">Kafka</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Microservices</span>
+                        <a href="../jobs/4/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/4/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="cloud native java engineer"
+                    data-company="google"
+                    data-skills="java, spring boot, gcp, kubernetes, docker, microservices, grpc, sql"
+                    data-stream="cloud"
+                    data-level="senior"
+                    data-remote="false"
+                    data-location="mountain view, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">G</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/7/index.html">Cloud Native Java Engineer</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Google</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Mountain View, CA</span>
+                                
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $170,000 – $230,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">GCP</span>
+                                
+                                <span class="skill-tag">Kubernetes</span>
+                                
+                                <span class="skill-tag">Docker</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Cloud Native</span>
+                        <a href="../jobs/7/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/7/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="enterprise java architect"
+                    data-company="ibm"
+                    data-skills="java, spring boot, hibernate, microservices, system design, design patterns, sql, agile"
+                    data-stream="enterprise"
+                    data-level="lead"
+                    data-remote="true"
+                    data-location="austin, tx">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">I</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/11/index.html">Enterprise Java Architect</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">IBM</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Austin, TX</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Lead / Principal (8+ yrs)</span>
+                                <span class="meta-item">💰 $160,000 – $220,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">Microservices</span>
+                                
+                                <span class="skill-tag">System Design</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Enterprise Java</span>
+                        <a href="../jobs/11/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/11/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="backend engineer - payments"
+                    data-company="stripe"
+                    data-skills="java, spring boot, hibernate, kafka, postgresql, redis, security, microservices"
+                    data-stream="fintech"
+                    data-level="senior"
+                    data-remote="true"
+                    data-location="san francisco, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">S</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/13/index.html">Backend Engineer - Payments</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Stripe</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 San Francisco, CA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $175,000 – $240,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">Kafka</span>
+                                
+                                <span class="skill-tag">PostgreSQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">FinTech</span>
+                        <a href="../jobs/13/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/13/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="lead java engineer"
+                    data-company="capital one"
+                    data-skills="java, spring boot, hibernate, aws, microservices, kafka, kubernetes, system design"
+                    data-stream="fintech"
+                    data-level="lead"
+                    data-remote="true"
+                    data-location="mclean, va">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">C</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/18/index.html">Lead Java Engineer</a></h2>
+                                <span class="featured-badge sm">Featured</span>
+                            </div>
+                            <p class="company-name">Capital One</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 McLean, VA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Lead / Principal (8+ yrs)</span>
+                                <span class="meta-item">💰 $170,000 – $230,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">AWS</span>
+                                
+                                <span class="skill-tag">Microservices</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">FinTech</span>
+                        <a href="../jobs/18/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/18/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="junior java developer"
+                    data-company="accenture"
+                    data-skills="java, spring boot, hibernate, sql, rest api, git, agile, junit"
+                    data-stream="enterprise"
+                    data-level="junior"
+                    data-remote="true"
+                    data-location="chicago, il">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">A</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/5/index.html">Junior Java Developer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Accenture</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Chicago, IL</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Junior (0-2 yrs)</span>
+                                <span class="meta-item">💰 $70,000 – $95,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">SQL</span>
+                                
+                                <span class="skill-tag">REST API</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Enterprise Java</span>
+                        <a href="../jobs/5/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/5/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="spring boot hibernate developer"
+                    data-company="infosys"
+                    data-skills="java, spring boot, hibernate, jpa, mysql, rest api, maven, junit, mockito"
+                    data-stream="backend"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="bangalore, india">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">I</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/6/index.html">Spring Boot Hibernate Developer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Infosys</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Bangalore, India</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $25,000 – $45,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">JPA</span>
+                                
+                                <span class="skill-tag">MySQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/6/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/6/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="devops java engineer"
+                    data-company="microsoft"
+                    data-skills="java, spring boot, azure, docker, kubernetes, ci/cd, jenkins, terraform"
+                    data-stream="devops"
+                    data-level="senior"
+                    data-remote="true"
+                    data-location="redmond, wa">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">M</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/8/index.html">DevOps Java Engineer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Microsoft</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Redmond, WA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $145,000 – $195,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Azure</span>
+                                
+                                <span class="skill-tag">Docker</span>
+                                
+                                <span class="skill-tag">Kubernetes</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">DevOps / SRE</span>
+                        <a href="../jobs/8/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/8/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="data engineer - java"
+                    data-company="uber"
+                    data-skills="java, spring boot, kafka, sql, postgresql, redis, aws, hibernate"
+                    data-stream="data"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="san francisco, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">U</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/9/index.html">Data Engineer - Java</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Uber</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 San Francisco, CA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $135,000 – $180,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Kafka</span>
+                                
+                                <span class="skill-tag">SQL</span>
+                                
+                                <span class="skill-tag">PostgreSQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Data Engineering</span>
+                        <a href="../jobs/9/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/9/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="mobile backend engineer"
+                    data-company="spotify"
+                    data-skills="java, spring boot, rest api, redis, postgresql, kafka, docker, security"
+                    data-stream="mobile"
+                    data-level="senior"
+                    data-remote="true"
+                    data-location="stockholm, sweden">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">S</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/10/index.html">Mobile Backend Engineer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Spotify</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Stockholm, Sweden</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $90,000 – $130,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">REST API</span>
+                                
+                                <span class="skill-tag">Redis</span>
+                                
+                                <span class="skill-tag">PostgreSQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Mobile Backend</span>
+                        <a href="../jobs/10/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/10/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="java spring intern"
+                    data-company="sap"
+                    data-skills="java, spring boot, hibernate, sql, git, rest api, junit"
+                    data-stream="backend"
+                    data-level="intern"
+                    data-remote="false"
+                    data-location="walldorf, germany">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">S</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/12/index.html">Java Spring Intern</a></h2>
+                                
+                            </div>
+                            <p class="company-name">SAP</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Walldorf, Germany</span>
+                                
+                                <span class="meta-item">📊 Intern</span>
+                                <span class="meta-item">💰 $35,000 – $45,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">SQL</span>
+                                
+                                <span class="skill-tag">Git</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/12/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/12/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="senior hibernate developer"
+                    data-company="tcs"
+                    data-skills="java, hibernate, jpa, spring boot, oracle, sql, rest api, maven"
+                    data-stream="backend"
+                    data-level="senior"
+                    data-remote="true"
+                    data-location="hyderabad, india">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">T</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/14/index.html">Senior Hibernate Developer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">TCS</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Hyderabad, India</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $30,000 – $55,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">JPA</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Oracle</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/14/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/14/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="full stack engineer - java/react"
+                    data-company="meta"
+                    data-skills="java, spring boot, react, typescript, graphql, hibernate, sql, docker"
+                    data-stream="fullstack"
+                    data-level="mid"
+                    data-remote="false"
+                    data-location="menlo park, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">M</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/15/index.html">Full Stack Engineer - Java/React</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Meta</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Menlo Park, CA</span>
+                                
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $150,000 – $200,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">React</span>
+                                
+                                <span class="skill-tag">TypeScript</span>
+                                
+                                <span class="skill-tag">GraphQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Full Stack</span>
+                        <a href="../jobs/15/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/15/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="platform engineer - java"
+                    data-company="linkedin"
+                    data-skills="java, spring boot, kafka, kubernetes, docker, azure, microservices, sql"
+                    data-stream="cloud"
+                    data-level="senior"
+                    data-remote="true"
+                    data-location="sunnyvale, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">L</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/16/index.html">Platform Engineer - Java</a></h2>
+                                
+                            </div>
+                            <p class="company-name">LinkedIn</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Sunnyvale, CA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Senior (5-8 yrs)</span>
+                                <span class="meta-item">💰 $155,000 – $210,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Kafka</span>
+                                
+                                <span class="skill-tag">Kubernetes</span>
+                                
+                                <span class="skill-tag">Docker</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Cloud Native</span>
+                        <a href="../jobs/16/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/16/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="java api developer"
+                    data-company="salesforce"
+                    data-skills="java, spring boot, rest api, hibernate, postgresql, oauth2, junit, agile"
+                    data-stream="backend"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="san francisco, ca">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">S</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/17/index.html">Java API Developer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Salesforce</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 San Francisco, CA</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $125,000 – $165,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">REST API</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">PostgreSQL</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/17/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/17/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="software engineer ii - java"
+                    data-company="walmart"
+                    data-skills="java, spring boot, hibernate, sql, redis, kafka, docker, rest api"
+                    data-stream="backend"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="bentonville, ar">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">W</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/19/index.html">Software Engineer II - Java</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Walmart</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Bentonville, AR</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $110,000 – $145,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">SQL</span>
+                                
+                                <span class="skill-tag">Redis</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Backend Engineering</span>
+                        <a href="../jobs/19/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/19/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+                <article class="job-list-item"
+                    data-title="spring cloud microservices developer"
+                    data-company="cognizant"
+                    data-skills="java, spring boot, spring cloud, hibernate, docker, kubernetes, rest api, sql"
+                    data-stream="microservices"
+                    data-level="mid"
+                    data-remote="true"
+                    data-location="chennai, india">
+                    <div class="job-list-main">
+                        <div class="company-avatar lg">C</div>
+                        <div class="job-list-content">
+                            <div class="job-list-top">
+                                <h2><a href="../jobs/20/index.html">Spring Cloud Microservices Developer</a></h2>
+                                
+                            </div>
+                            <p class="company-name">Cognizant</p>
+                            <div class="job-meta">
+                                <span class="meta-item">📍 Chennai, India</span>
+                                <span class="meta-item remote">🌐 Remote</span>
+                                <span class="meta-item">📊 Mid-Level (2-5 yrs)</span>
+                                <span class="meta-item">💰 $20,000 – $40,000</span>
+                            </div>
+                            <div class="job-tags">
+                                
+                                <span class="skill-tag">Java</span>
+                                
+                                <span class="skill-tag">Spring Boot</span>
+                                
+                                <span class="skill-tag">Spring Cloud</span>
+                                
+                                <span class="skill-tag">Hibernate</span>
+                                
+                                <span class="skill-tag">Docker</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list-actions">
+                        <span class="stream-badge">Microservices</span>
+                        <a href="../jobs/20/index.html" class="btn btn-outline btn-sm">View Details</a>
+                        <a href="../jobs/20/resume/index.html" class="btn btn-primary btn-sm">Build Resume</a>
+                    </div>
+                </article>
+                
+            </div>
+            <div class="empty-state" id="empty-state" hidden>
+                <div class="empty-icon">🔍</div>
+                <h3>No jobs found</h3>
+                <p>Try adjusting your search filters or browse all available positions.</p>
+                <a href="../jobs/index.html" class="btn btn-primary">View All Jobs</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span>DevCareer Hub</span>
+            </div>
+            <p class="footer-tagline">Your gateway to Java, Spring Boot & Hibernate careers</p>
+            <div class="footer-links">
+                <a href="../jobs/index.html?stream=backend">Backend</a>
+                <a href="../jobs/index.html?stream=fullstack">Full Stack</a>
+                <a href="../jobs/index.html?stream=microservices">Microservices</a>
+                <a href="../jobs/index.html?stream=cloud">Cloud Native</a>
+                <a href="../jobs/index.html?stream=fintech">FinTech</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 DevCareer Hub. Built for software engineers.</p>
+        </div>
+    </footer>
+
+    <script src="../static/jobs/js/main.js"></script>
+    
+</body>
+</html>

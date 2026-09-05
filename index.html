@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="site-base" content=".">
+    <title>Home — Java & Spring Boot Jobs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/jobs/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">DevCareer<span class="logo-accent">Hub</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="jobs/index.html" class="nav-link ">Browse Jobs</a>
+            </div>
+            <a href="jobs/index.html" class="btn btn-primary btn-sm">Find Jobs</a>
+        </div>
+    </nav>
+
+    <main>
+        
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-container">
+        <div class="hero-badge">🚀 20+ Software Engineering Jobs</div>
+        <h1 class="hero-title">
+            Find Your Dream<br>
+            <span class="gradient-text">Java & Spring Boot</span> Career
+        </h1>
+        <p class="hero-subtitle">
+            Discover top software engineering roles across Backend, Full Stack, Microservices, Cloud, and more.
+            Generate tailored resumes instantly based on any job description.
+        </p>
+
+        <form action="jobs/index.html" method="get" class="hero-search" id="hero-search-form">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                </svg>
+                <input type="text" name="q" placeholder="Search jobs, skills, companies..." class="search-input" id="hero-search-input" autocomplete="off">
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Search Jobs</button>
+        </form>
+
+        <div class="hero-tags">
+            <span class="tag-label">Popular:</span>
+            <a href="jobs/index.html?q=Spring+Boot" class="tag">Spring Boot</a>
+            <a href="jobs/index.html?q=Hibernate" class="tag">Hibernate</a>
+            <a href="jobs/index.html?q=Microservices" class="tag">Microservices</a>
+            <a href="jobs/index.html?remote=true" class="tag">Remote</a>
+            <a href="jobs/index.html?level=senior" class="tag">Senior</a>
+        </div>
+    </div>
+</section>
+
+<section class="streams-section">
+    <div class="container">
+        <h2 class="section-title">Explore by Stream</h2>
+        <p class="section-subtitle">Choose your career path and find matching opportunities</p>
+        <div class="streams-grid">
+            
+            <a href="jobs/index.html?stream=backend" class="stream-card">
+                <div class="stream-icon">
+                    ⚙️
+                    
+                </div>
+                <h3>Backend Engineering</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=fullstack" class="stream-card">
+                <div class="stream-icon">
+                    🔄
+                    
+                </div>
+                <h3>Full Stack</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=microservices" class="stream-card">
+                <div class="stream-icon">
+                    🔗
+                    
+                </div>
+                <h3>Microservices</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=cloud" class="stream-card">
+                <div class="stream-icon">
+                    ☁️
+                    
+                </div>
+                <h3>Cloud Native</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=data" class="stream-card">
+                <div class="stream-icon">
+                    📊
+                    
+                </div>
+                <h3>Data Engineering</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=devops" class="stream-card">
+                <div class="stream-icon">
+                    🛠️
+                    
+                </div>
+                <h3>DevOps / SRE</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=mobile" class="stream-card">
+                <div class="stream-icon">
+                    📱
+                    
+                </div>
+                <h3>Mobile Backend</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=fintech" class="stream-card">
+                <div class="stream-icon">
+                    💰
+                    
+                </div>
+                <h3>FinTech</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+            <a href="jobs/index.html?stream=enterprise" class="stream-card">
+                <div class="stream-icon">
+                    🏢
+                </div>
+                <h3>Enterprise Java</h3>
+                <span class="stream-arrow">→</span>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Smart Search</h3>
+                <p>Filter by technology stack, experience level, location, and remote options to find your perfect match.</p>
+            </div>
+            <div class="feature-card highlight">
+                <div class="feature-icon">📄</div>
+                <h3>AI Resume Builder</h3>
+                <p>Generate a tailored resume based on any job description. Highlights matching skills and relevant experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Top Companies</h3>
+                <p>Jobs from Amazon, Google, Netflix, Goldman Sachs, and leading tech companies worldwide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jobs-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Jobs</h2>
+            <a href="jobs/index.html" class="view-all">View all jobs →</a>
+        </div>
+        <div class="jobs-grid">
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">G</div>
+                    <div>
+                        <h3><a href="jobs/1/index.html">Senior Java Spring Boot Developer</a></h3>
+                        <p class="company-name">Goldman Sachs</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 New York, NY</span>
+                    
+                    <span class="meta-item">💰 $150,000 – $200,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">Hibernate</span>
+                    
+                    <span class="skill-tag">REST API</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">FinTech</span>
+                    <a href="jobs/1/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">A</div>
+                    <div>
+                        <h3><a href="jobs/2/index.html">Java Backend Engineer</a></h3>
+                        <p class="company-name">Amazon</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 Seattle, WA</span>
+                    <span class="meta-item remote">🌐 Remote</span>
+                    <span class="meta-item">💰 $130,000 – $175,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">Hibernate</span>
+                    
+                    <span class="skill-tag">AWS</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">Backend Engineering</span>
+                    <a href="jobs/2/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">J</div>
+                    <div>
+                        <h3><a href="jobs/3/index.html">Full Stack Java Developer</a></h3>
+                        <p class="company-name">JPMorgan Chase</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 Jersey City, NJ</span>
+                    
+                    <span class="meta-item">💰 $140,000 – $185,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">Hibernate</span>
+                    
+                    <span class="skill-tag">React</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">Full Stack</span>
+                    <a href="jobs/3/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">N</div>
+                    <div>
+                        <h3><a href="jobs/4/index.html">Microservices Architect</a></h3>
+                        <p class="company-name">Netflix</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 Los Gatos, CA</span>
+                    <span class="meta-item remote">🌐 Remote</span>
+                    <span class="meta-item">💰 $200,000 – $280,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">Spring Cloud</span>
+                    
+                    <span class="skill-tag">Microservices</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">Microservices</span>
+                    <a href="jobs/4/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">G</div>
+                    <div>
+                        <h3><a href="jobs/7/index.html">Cloud Native Java Engineer</a></h3>
+                        <p class="company-name">Google</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 Mountain View, CA</span>
+                    
+                    <span class="meta-item">💰 $170,000 – $230,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">GCP</span>
+                    
+                    <span class="skill-tag">Kubernetes</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">Cloud Native</span>
+                    <a href="jobs/7/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+            <article class="job-card">
+                <span class="featured-badge">Featured</span>
+                <div class="job-card-header">
+                    <div class="company-avatar">I</div>
+                    <div>
+                        <h3><a href="jobs/11/index.html">Enterprise Java Architect</a></h3>
+                        <p class="company-name">IBM</p>
+                    </div>
+                </div>
+                <div class="job-meta">
+                    <span class="meta-item">📍 Austin, TX</span>
+                    <span class="meta-item remote">🌐 Remote</span>
+                    <span class="meta-item">💰 $160,000 – $220,000</span>
+                </div>
+                <div class="job-tags">
+                    
+                    <span class="skill-tag">Java</span>
+                    
+                    <span class="skill-tag">Spring Boot</span>
+                    
+                    <span class="skill-tag">Hibernate</span>
+                    
+                    <span class="skill-tag">Microservices</span>
+                    
+                </div>
+                <div class="job-card-footer">
+                    <span class="stream-badge">Enterprise Java</span>
+                    <a href="jobs/11/resume/index.html" class="btn btn-outline btn-sm">Build Resume</a>
+                </div>
+            </article>
+            
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container cta-container">
+        <h2>Ready to land your next role?</h2>
+        <p>Browse hundreds of Java & Spring Boot positions and create a resume tailored to each job.</p>
+        <a href="jobs/index.html" class="btn btn-primary btn-lg">Browse All Jobs</a>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span>DevCareer Hub</span>
+            </div>
+            <p class="footer-tagline">Your gateway to Java, Spring Boot & Hibernate careers</p>
+            <div class="footer-links">
+                <a href="jobs/index.html?stream=backend">Backend</a>
+                <a href="jobs/index.html?stream=fullstack">Full Stack</a>
+                <a href="jobs/index.html?stream=microservices">Microservices</a>
+                <a href="jobs/index.html?stream=cloud">Cloud Native</a>
+                <a href="jobs/index.html?stream=fintech">FinTech</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 DevCareer Hub. Built for software engineers.</p>
+        </div>
+    </footer>
+
+    <script src="static/jobs/js/main.js"></script>
+    
+</body>
+</html>
