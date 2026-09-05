@@ -72,7 +72,19 @@ def job_detail(request, pk):
 
 def resume_form(request, pk):
     job = get_object_or_404(Job, pk=pk)
-    context = {'job': job}
+    context = {
+        'job': job,
+        'job_payload': {
+            'id': job.pk,
+            'title': job.title,
+            'company': job.company,
+            'stream': job.stream,
+            'experience_level': job.experience_level,
+            'description': job.description,
+            'requirements': job.requirements,
+            'skills': job.skills,
+        },
+    }
     return render(request, 'jobs/resume_form.html', context)
 
 

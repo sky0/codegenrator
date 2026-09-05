@@ -6,14 +6,14 @@
 <section class="page-header">
     <div class="container">
         <h1>Browse Jobs</h1>
-        <p>{{ result_count }} position{{ result_count|pluralize }} found</p>
+        <p id="result-count">{{ result_count }} position{{ result_count|pluralize }} found</p>
     </div>
 </section>
 
 <section class="jobs-page">
     <div class="container jobs-layout">
         <aside class="filters-sidebar">
-            <form method="get" action="{% url 'jobs:job_list' %}" class="filters-form" id="filters-form">
+            <form method="get" action="{% url 'jobs:job_list' %}" class="filters-form" id="filters-form" data-static-export="{% if STATIC_EXPORT %}true{% else %}false{% endif %}">
                 <div class="filter-group">
                     <label for="q">Search</label>
                     <input type="text" name="q" id="q" value="{{ q }}" placeholder="Keywords, skills, company...">
@@ -57,10 +57,16 @@
         </aside>
 
         <div class="jobs-results">
-            {% if jobs %}
-            <div class="jobs-list">
+            <div class="jobs-list" id="jobs-list" {% if not jobs %}hidden{% endif %}>
                 {% for job in jobs %}
-                <article class="job-list-item">
+                <article class="job-list-item"
+                    data-title="{{ job.title|lower }}"
+                    data-company="{{ job.company|lower }}"
+                    data-skills="{{ job.skills|lower }}"
+                    data-stream="{{ job.stream }}"
+                    data-level="{{ job.experience_level }}"
+                    data-remote="{% if job.remote %}true{% else %}false{% endif %}"
+                    data-location="{{ job.location|lower }}">
                     <div class="job-list-main">
                         <div class="company-avatar lg">{{ job.company|first }}</div>
                         <div class="job-list-content">
@@ -90,14 +96,12 @@
                 </article>
                 {% endfor %}
             </div>
-            {% else %}
-            <div class="empty-state">
+            <div class="empty-state" id="empty-state" {% if jobs %}hidden{% endif %}>
                 <div class="empty-icon">🔍</div>
                 <h3>No jobs found</h3>
                 <p>Try adjusting your search filters or browse all available positions.</p>
                 <a href="{% url 'jobs:job_list' %}" class="btn btn-primary">View All Jobs</a>
             </div>
-            {% endif %}
         </div>
     </div>
 </section>

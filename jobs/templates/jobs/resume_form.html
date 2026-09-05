@@ -1,4 +1,5 @@
 {% extends 'jobs/base.html' %}
+{% load static %}
 
 {% block title %}Build Resume — {{ job.title }}{% endblock %}
 
@@ -14,8 +15,9 @@
 <section class="resume-form-page">
     <div class="container resume-form-layout">
         <div class="resume-form-main">
-            <form method="post" action="{% url 'jobs:generate_resume' job.pk %}" class="resume-form">
-                {% csrf_token %}
+            <form method="post" action="{% if STATIC_EXPORT %}#{% else %}{% url 'jobs:generate_resume' job.pk %}{% endif %}" class="resume-form" id="resume-form">
+                {% if not STATIC_EXPORT %}{% csrf_token %}{% endif %}
+                {{ job_payload|json_script:"job-json" }}
                 <div class="form-section">
                     <h3>Your Information</h3>
                     <p class="form-hint">Enter your details below. We'll tailor your resume to match this job's requirements.</p>
@@ -57,6 +59,7 @@
                     ✨ Generate My Resume
                 </button>
             </form>
+            <div id="resume-output" hidden></div>
         </div>
 
         <aside class="resume-form-sidebar">
@@ -86,4 +89,18 @@
         </aside>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    @media print {
+        .navbar, .footer, .resume-form, .resume-form-sidebar, .back-link, .page-header { display: none !important; }
+        .resume-document { box-shadow: none !important; margin: 0 !important; }
+        body { background: white !important; }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'jobs/js/resume.js' %}"></script>
 {% endblock %}
