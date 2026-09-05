@@ -1,11 +1,23 @@
 function siteBase() {
     const meta = document.querySelector('meta[name="site-base"]');
     const value = meta ? meta.getAttribute('content') : '';
-    return value || '';
+    if (value && (value.startsWith('.') || value === '')) {
+        const directory = window.location.pathname.replace(/[^/]+$/, '');
+        const resolved = new URL((value || '.') + '/', window.location.origin + directory);
+        return resolved.pathname.replace(/\/$/, '');
+    }
+    if (value) return value.replace(/\/$/, '');
+    const path = window.location.pathname.replace(/\/index\.html$/, '');
+    const parts = path.split('/').filter(Boolean);
+    const jobsIdx = parts.indexOf('jobs');
+    if (jobsIdx >= 0) {
+        return '/' + parts.slice(0, jobsIdx).join('/');
+    }
+    return path === '/' ? '' : path.replace(/\/$/, '');
 }
 
 function jobUrl(id) {
-    return siteBase() + '/jobs/' + id + '/';
+    return siteBase() + '/jobs/' + id + '/index.html';
 }
 
 document.addEventListener('DOMContentLoaded', function () {

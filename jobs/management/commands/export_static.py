@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import shutil
 from pathlib import Path
 
@@ -10,6 +11,22 @@ from django.test import Client
 from django.urls import set_script_prefix
 
 from jobs.models import Job
+
+
+def relativize_html(html, relpath, base):
+    parent = Path(relpath).parent
+    depth = 0 if str(parent) == '.' else len(parent.parts)
+    prefix = '' if depth == 0 else '../' * depth
+    meta = '.' if depth == 0 else '/'.join(['..'] * depth)
+
+    html = html.replace(f'{base}/static/', f'{prefix}static/')
+    html = re.sub(re.escape(base) + r'/jobs/(\d+)/resume/?', prefix + r'jobs/\1/resume/index.html', html)
+    html = re.sub(re.escape(base) + r'/jobs/(\d+)/?', prefix + r'jobs/\1/index.html', html)
+    html = html.replace(f'{base}/jobs/', f'{prefix}jobs/index.html')
+    html = html.replace(f'{base}/', f'{prefix}index.html')
+    html = html.replace(f'content="{base}"', f'content="{meta}"')
+    html = html.replace('content=""', f'content="{meta}"')
+    return html
 
 
 class Command(BaseCommand):
@@ -24,21 +41,20 @@ class Command(BaseCommand):
         parser.add_argument(
             '--base',
             default=os.environ.get('SITE_BASE', '/codegenrator'),
-            help='URL prefix, e.g. /codegenrator for GitHub Pages',
+            help='URL prefix used while rendering, then rewritten to relative links',
         )
 
     def handle(self, *args, **options):
         dest = Path(options['dest'])
-        base = options['base'].rstrip('/')
+        base = options['base'].rstrip('/') or '/codegenrator'
         if dest.exists():
             shutil.rmtree(dest)
         dest.mkdir(parents=True)
 
         settings.SITE_BASE = base
         settings.STATIC_EXPORT = True
-        settings.STATIC_URL = f'{base}/static/' if base else '/static/'
-        if base:
-            set_script_prefix(base + '/')
+        settings.STATIC_URL = f'{base}/static/'
+        set_script_prefix(base + '/')
 
         call_command('collectstatic', interactive=False, verbosity=0)
         shutil.copytree(settings.STATIC_ROOT, dest / 'static')
@@ -53,7 +69,7 @@ class Command(BaseCommand):
                 raise CommandError(f'{url} returned {response.status_code}')
             path = dest / relpath
             path.parent.mkdir(parents=True, exist_ok=True)
-            html = response.content.decode('utf-8')
+            html = relativize_html(response.content.decode('utf-8'), relpath, base)
             path.write_text(html, encoding='utf-8')
 
         write('/', 'index.html')
@@ -76,8 +92,8 @@ class Command(BaseCommand):
         (dest / 'jobs.json').write_text(json.dumps({'results': payload}), encoding='utf-8')
         (dest / '404.html').write_text(
             '<!DOCTYPE html><html><head><meta charset="utf-8">'
-            f'<meta http-equiv="refresh" content="0; url={base or "/"}/">'
-            f'</head><body><a href="{base or "/"}/">Go to DevCareer Hub</a></body></html>',
+            '<meta http-equiv="refresh" content="0; url=./index.html">'
+            '</head><body><a href="./index.html">Go to DevCareer Hub</a></body></html>',
             encoding='utf-8',
         )
 
